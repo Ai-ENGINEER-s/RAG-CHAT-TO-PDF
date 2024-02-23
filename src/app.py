@@ -1,4 +1,4 @@
-import streamlit as st
+from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
@@ -6,18 +6,13 @@ from langchain.vectorstores import FAISS
 from langchain.chat_models import ChatOpenAI
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain
-from langchain_community.llms import HuggingFaceHub
 from htmlTemplates import css, bot_template, user_template
-import streamlit as st
-from PyPDF2 import PdfReader
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import OpenAIEmbeddings, HuggingFaceInstructEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.chat_models import ChatOpenAI
-from langchain.memory import ConversationBufferMemory
-from langchain.chains import ConversationalRetrievalChain
 from langchain_community.llms import HuggingFaceHub
-from htmlTemplates import css, bot_template, user_template
+import streamlit as st 
+
+dotenv_path = r"C:\Users\BARRY\Documents\chat-to-pdf\rag-streamlit-ask-pdf-from-ui\.env.example"
+
+load_dotenv(dotenv_path)
 
 # Fonction pour obtenir le texte à partir de PDFs
 def get_pdf_text(pdf_docs):
