@@ -9,10 +9,9 @@ from langchain.chains import ConversationalRetrievalChain
 from htmlTemplates import css, bot_template, user_template
 from langchain_community.llms import HuggingFaceHub
 import streamlit as st 
+import os
 
-dotenv_path = r"C:\Users\BARRY\Documents\chat-to-pdf\rag-streamlit-ask-pdf-from-ui\.env.example"
-
-load_dotenv(dotenv_path)
+os.environ["OPENAI_API_KEY"] = "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"
 
 # Fonction pour obtenir le texte à partir de PDFs
 def get_pdf_text(pdf_docs):
